@@ -1,4 +1,4 @@
-#© 2021 Sean Murdock
+#© 2021 Moses Mambassa
 # this is a comment
 # this is the version of YAML we are using with the Kubernetes API
 apiVersion: apps/v1 
@@ -31,7 +31,7 @@ spec:
 # The name of the container is specified below      
         - name: dev-stedi-moses
 # The image is a prebuilt file containing the operating system        
-          image: us-docker.pkg.dev/unstable-unicorns-389016/moses/api-tests
+          image: us-docker.pkg.dev/unstable-unicorns-389016/moses-api/stedi-api:latest
           env:
             - name: REDIS_PASSWORD
               valueFrom:
@@ -48,18 +48,11 @@ spec:
               value: "0"
             - name: KAFKA_BROKER
               value: "localhost:9092"
-            - name: TWILIO_ACCOUNT_SID
-              valueFrom:
-                secretKeyRef:
-                  name: twilio-dev
-                  key: twilio_account_sid
             - name: TWILIO_AUTH_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: twilio-dev
                   key: twilio_token
-            - name: TWILIO_PHONE
-              value: "+17146778438"
 # The ports is a list of tcp ports the pod listens on
           ports:
 # ContainerPort is a specific port the pod listens on
@@ -102,5 +95,3 @@ spec:
   ports:
     - port: 80
       targetPort: 4567
-
-    
