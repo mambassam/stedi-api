@@ -8,7 +8,7 @@ kind: Deployment
 # Metadata is information related to the object we created in Kubernetes
 metadata:
 # The name here is the name of our deployment  
-  name: dev-moses-stedi-api
+  name: dev-stedi-moses
 spec:
 # Replicas refers to the number of pods we deploy
   replicas: 1
@@ -17,19 +17,19 @@ spec:
 # Matchlabels are a label for my selector  
     matchLabels:
 # App is a specific kind of label for my pod
-      app: dev-moses-stedi-api
+      app: dev-stedi-moses
 # The Template describes all the features of my pod
   template:
 # The metadata provides labels for my template  
     metadata:
       labels:
-        app: dev-moses-stedi-api
+        app: dev-stedi-moses
 # The spec refers to the specification of my containers in my pod        
     spec:
 # Containers can have one or more Docker containers in the pod
       containers:
 # The name of the container is specified below      
-        - name: dev-moses-stedi-api
+        - name: dev-stedi-moses
 # The image is a prebuilt file containing the operating system        
           image: us-docker.pkg.dev/unstable-unicorns-389016/moses-stedi-api/stedi-api:latest
           env:
@@ -87,10 +87,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dev-moses-stedi-api-loadbalancer
+  name: dev-stedi-moses-loadbalancer
 spec:
   selector:
-    app: dev-moses-stedi-api
+    app: dev-stedi-moses
   type: LoadBalancer
   ports:
     - port: 80
