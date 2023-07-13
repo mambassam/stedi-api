@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: prod-stedi-moses
-          image: gcr.io/cubs-consulting/stedi #This need to be change to the new one that need to be created
+          image: us-docker.pkg.dev/unstable-unicorns-389016/moses-stedi-api/stedi-api:latest #This need to be change to the new one that need to be created
           env:
             - name: REDIS_PASSWORD
               valueFrom:
