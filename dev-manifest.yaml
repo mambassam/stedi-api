@@ -37,11 +37,11 @@ spec:
               valueFrom:
                 secretKeyRef:
                 #need to change
-                  name: redis-secrets-dev
+                  name: redis-secrets-moses
                   key: REDIS_PASS
             - name: REDIS_HOST
             #need change
-              value: "redis-moses-dev"
+              value: "redis-secrets-moses"
             - name: REDIS_PORT
               value: "6379"
             - name: REDIS_DB
@@ -51,7 +51,7 @@ spec:
             - name: TWILIO_AUTH_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: twilio-dev
+                  name: moses-twilio-dev
                   key: twilio_token
 # The ports is a list of tcp ports the pod listens on
           ports:
