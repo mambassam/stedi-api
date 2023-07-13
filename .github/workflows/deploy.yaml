@@ -61,7 +61,7 @@ jobs:
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
-        docker push "us-docker.pkg.dev/unstable-unicorns-389016/moses-stedi-api/stedi-tests:latest"
+        docker push "us-docker.pkg.dev/unstable-unicorns-389016/moses-stedi-api/stedi-api:latest"
 
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
